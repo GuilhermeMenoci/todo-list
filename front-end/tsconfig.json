@@ -4,6 +4,7 @@
   "compilerOptions": {
     // strictPropertyInitialization: para nao inicializar o objeto
     "strictPropertyInitialization": false,
+    "strictNullChecks":false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
