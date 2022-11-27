@@ -1,5 +1,7 @@
 package com.br.todo.list.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,6 +32,11 @@ public class TodoController {
 	@GetMapping("/{id}")
 	public Todo getById(@PathVariable Long id) {
 		return todoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+	}
+	
+	@GetMapping()
+	public List<Todo> getAll() {
+		return todoRepository.findAll();
 	}
 	
 }

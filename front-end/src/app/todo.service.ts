@@ -18,4 +18,8 @@ export class TodoService {
     return this.http.post<Todo>(this.apiUrl, todo)
   }
 
+  listar() : Observable<Todo[]>{
+    return this.http.get<Todo[]>(this.apiUrl);
+  }
+
 }
