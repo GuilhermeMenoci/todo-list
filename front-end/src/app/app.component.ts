@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
   ){}
 
   ngOnInit() {
-      this.service.listar().subscribe(todoList => this.todos = todoList)
+      this.listarTodos();
   }
 
   submit(){
@@ -28,6 +28,16 @@ export class AppComponent implements OnInit{
     this.service.salvar(todo).subscribe(savedTodo => {
       this.todos.push(savedTodo)
       this.form.reset()
+    })
+  }
+
+  listarTodos(){
+    this.service.listar().subscribe(todoList => this.todos = todoList)
+  }
+
+  delete(todo: Todo){
+    this.service.deletar(todo.id).subscribe({
+      next: (response) => this.listarTodos()
     })
   }
 
